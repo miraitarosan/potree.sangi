@@ -32,10 +32,6 @@
 	<script src="libs/plasio/js/laslaz.js"></script>
 	
 	<!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
-		document.title = "";
-		viewer.setEDLEnabled(false);
-		viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
-		viewer.setDescription(``);
 	
 	<div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
 		<div id="potree_render_area"></div>
@@ -48,7 +44,7 @@
 		
 		viewer.setEDLEnabled(true);
 		viewer.setFOV(60);
-		viewer.setPointBudget(1*1000*1000);
+		viewer.setPointBudget(5_000_000);
 		document.title = "";
 		viewer.setEDLEnabled(false);
 		viewer.setBackground("gradient"); // ["skybox", "gradient", "black", "white"];
@@ -56,11 +52,16 @@
 		viewer.loadSettingsFromURL();
 		
 		viewer.loadGUI(() => {
-			viewer.setLanguage('en');
+			viewer.setLanguage('jp');
 			$("#menu_appearance").next().show();
 			$("#menu_tools").next().show();
-			$("#menu_scene").next().show();
+
 			viewer.toggleSidebar();
+			$("#sldPointBudget").slider({ min: 1000000 }); //点群rendering数の下限
+			$("#sldPointBudget").slider({ max: 10000000 });
+			$("#sldFOV").closest("li").hide();
+			$("#show_bounding_box").closest("li").hide();
+			$("#set_freeze").closest("li").hide();
 		});
 		
 		Potree.loadPointCloud("pointclouds/index/cloud.js", "index", e => {

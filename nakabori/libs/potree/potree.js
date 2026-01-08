@@ -22596,20 +22596,20 @@ initSidebar = (viewer) => {
 
 
 
-		let elCameraProjection = $(`
-			<selectgroup id="camera_projection_options">
-				<option id="camera_projection_options_perspective" value="PERSPECTIVE">Perspective</option>
-				<option id="camera_projection_options_orthigraphic" value="ORTHOGRAPHIC">Orthographic</option>
-			</selectgroup>
-		`);
-		elNavigation.append(elCameraProjection);
-		elCameraProjection.selectgroup({title: "Camera Projection"});
-		elCameraProjection.find("input").click( (e) => {
-			viewer.setCameraMode(Potree.CameraMode[e.target.value]);
-		});
-		let cameraMode = Object.keys(Potree.CameraMode)
-			.filter(key => Potree.CameraMode[key] === viewer.scene.cameraMode);
-		elCameraProjection.find(`input[value=${cameraMode}]`).trigger("click");
+		// let elCameraProjection = $(`
+// 	<selectgroup id="camera_projection_options">
+// 		<option id="camera_projection_options_perspective" value="PERSPECTIVE">Perspective</option>
+// 		<option id="camera_projection_options_orthigraphic" value="ORTHOGRAPHIC">Orthographic</option>
+// 	</selectgroup>
+// `);
+// elNavigation.append(elCameraProjection);
+// elCameraProjection.selectgroup({title: "Camera Projection"});
+// elCameraProjection.find("input").click( (e) => {
+// 	viewer.setCameraMode(Potree.CameraMode[e.target.value]);
+// });
+// let cameraMode = Object.keys(Potree.CameraMode)
+// 	.filter(key => Potree.CameraMode[key] === viewer.scene.cameraMode);
+// elCameraProjection.find(`input[value=${cameraMode}]`).trigger("click");
 
 		let speedRange = new THREE.Vector2(1, 10 * 1000);
 
@@ -22658,7 +22658,7 @@ initSidebar = (viewer) => {
 
 		{
 			let elSplatQuality = $("#splat_quality_options");
-			elSplatQuality.selectgroup({title: "Splat Quality"});
+			elSplatQuality.selectgroup({title: '<span data-i18n="appearance.splat_quality"></span>'});
 
 			elSplatQuality.find("input").click( (e) => {
 				if(e.target.value === "standard"){
