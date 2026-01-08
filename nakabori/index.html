@@ -62,6 +62,10 @@
 			$("#sldFOV").closest("li").hide();
 			$("#show_bounding_box").closest("li").hide();
 			$("#set_freeze").closest("li").hide();
+
+			if (/Mobi|Android/i.test(navigator.userAgent)) {
+				$('#splat_quality_options').parent().hide();
+			}
 		});
 		
 		Potree.loadPointCloud("pointclouds/index/cloud.js", "index", e => {

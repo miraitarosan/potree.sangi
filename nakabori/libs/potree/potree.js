@@ -22516,7 +22516,7 @@ initSidebar = (viewer) => {
 		));
 
 		elNavigation.append(createToolIcon(
-			Potree.resourcePath + '/icons/fps_controls.svg',
+			Potree.resourcePath + '/icons/eye_2.png',
 			'[title]tt.flight_control',
 			function () {
 				viewer.setNavigationMode(Potree.FirstPersonControls);
@@ -22524,14 +22524,14 @@ initSidebar = (viewer) => {
 			}
 		));
 
-		elNavigation.append(createToolIcon(
-			Potree.resourcePath + '/icons/helicopter_controls.svg',
-			'[title]tt.heli_control',
-			() => { 
-				viewer.setNavigationMode(Potree.FirstPersonControls);
-				viewer.fpControls.lockElevation = true;
-			}
-		));
+		// elNavigation.append(createToolIcon(
+		// 	Potree.resourcePath + '/icons/helicopter_controls.svg',
+		// 	'[title]tt.heli_control',
+		// 	() => { 
+		// 		viewer.setNavigationMode(Potree.FirstPersonControls);
+		// 		viewer.fpControls.lockElevation = true;
+		// 	}
+		// ));
 
 		elNavigation.append(createToolIcon(
 			Potree.resourcePath + '/icons/orbit_controls.svg',
@@ -22545,13 +22545,20 @@ initSidebar = (viewer) => {
 			function () { viewer.fitToScreen(); }
 		));
 
+		let resetIcon = createToolIcon(
+			Potree.resourcePath + '/icons/cansel.png',
+			'[title]tt.reset_view',
+			function () { viewer.setNavigationMode(Potree.OrbitControls); }
+		);
+		elNavigation.append(resetIcon);
+
 
 		
-		elNavigation.append(createToolIcon(
-			Potree.resourcePath + "/icons/navigation_cube.svg",
-			"[title]tt.navigation_cube_control",
-			function(){viewer.toggleNavigationCube()}
-		));
+		// elNavigation.append(createToolIcon(
+		// 	Potree.resourcePath + "/icons/navigation_cube.svg",
+		// 	"[title]tt.navigation_cube_control",
+		// 	function(){viewer.toggleNavigationCube()}
+		// ));
 
 		elNavigation.append("<br>");
 
