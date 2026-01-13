@@ -62,6 +62,7 @@
 			$("#sldFOV").closest("li").hide();
 			$("#show_bounding_box").closest("li").hide();
 			$("#set_freeze").closest("li").hide();
+			$("[data-i18n='[title]tt.flight_control']").attr('src', 'libs/potree/resources/icons/eye_icon.png');
 
 			if (/Mobi|Android/i.test(navigator.userAgent)) {
 				$('#splat_quality_options').parent().hide();

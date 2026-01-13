@@ -62,6 +62,24 @@
 			$("#sldFOV").closest("li").hide();
 			$("#show_bounding_box").closest("li").hide();
 			$("#set_freeze").closest("li").hide();
+			$("#camera_projection_options").hide();
+			$("[data-i18n='[title]tt.heli_control']").hide();
+			$("[data-i18n='[title]tt.flight_control']").attr('src', 'libs/potree/resources/icons/eye_icon.png');
+			$("[data-i18n='[title]tt.navigation_cube_control']").hide();
+
+			let elResetView = $(`
+				<img src="libs/potree/resources/icons/cansel.png"
+					style="width: 32px; height: 32px"
+					class="button-icon"
+					data-i18n="[title]tt.reset_view_button" />
+			`);
+			elResetView.click(() => {
+				viewer.setNavigationMode(Potree.OrbitControls);
+				viewer.fitToScreen();
+				viewer.inputHandler.deselectAll();
+			});
+			$("[data-i18n='[title]tt.focus_control']").after(elResetView);
+			elResetView.i18n(); // Add this line
 
 			if (/Mobi|Android/i.test(navigator.userAgent)) {
 				$('#splat_quality_options').parent().hide();

@@ -32,8 +32,8 @@
         "focus_control": "全体表示",
         "orbit_control": " 回転",
         "flight_control": "一人称視点",
-        		"earth_control": "平行移動",
-        		"reset_view": "デフォルトに戻す"
+        "earth_control": "平行移動",
+        "reset_view_button": "デフォルトに戻す"
             },    "appearance": {
         "nb_max_pts": "点の数", 
         "point_size": "点サイズを設定",
