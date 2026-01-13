@@ -22658,7 +22658,7 @@ initSidebar = (viewer) => {
 
 		{
 			let elSplatQuality = $("#splat_quality_options");
-			elSplatQuality.selectgroup({title: "Splat Quality"});
+			elSplatQuality.selectgroup({title: i18n.t("appearance.splat_quality")});
 
 			elSplatQuality.find("input").click( (e) => {
 				if(e.target.value === "standard"){
